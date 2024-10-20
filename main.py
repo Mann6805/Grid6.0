@@ -8,7 +8,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 IMG_SIZE = (128, 128)
 
-class_labels = [' apple', ' instant_noodle', ' juice', ' orange', ' sandwich']
+# class_labels = [' apple', ' instant_noodle', ' juice', ' orange', ' sandwich'] #Grocery
+class_labels = [' AfterShave', ' FabricBrightener', ' FaceMask', ' Handwash', ' Lotion', ' Napkin', ' Oil', ' PetroliumJelly', ' Powder', ' Soap', ' Sweetner', ' Toothpaste'] #FMCG
 
 # Function to preprocess the input frame
 def preprocess_frame(frame):
@@ -24,7 +25,7 @@ video = cv2.VideoCapture(0)
 video.set(3, 320)  # Reduce video width (for lower resolution)
 video.set(4, 240)  # Reduce video height (for lower resolution)
 
-model = tf.keras.models.load_model('grocery.h5')  # Adjust this to your model path
+model = tf.keras.models.load_model('FMCG.h5')  # Adjust this to your model path
 
 # Initialize EasyOCR reader for only English (this reduces overhead)
 reader = easyocr.Reader(['en','hi'], gpu=False)  # Disable GPU to save memory
